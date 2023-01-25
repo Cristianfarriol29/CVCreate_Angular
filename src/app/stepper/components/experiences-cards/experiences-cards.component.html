@@ -1,0 +1,106 @@
+<div *ngIf="experiences.length">
+  <span *ngFor="let experience of experiences; index as i">
+  <div class="card-university-experiences">
+    <div class="card-university-experiences--titles">
+      <span *ngIf="experience.Conferencia">
+        <div class="flex-column">
+          <h3>{{i + 1}} - Conferencia/taller: {{experience.Conferencia}}</h3>
+        </div>
+
+      </span>
+      <span *ngIf="experience.perfil">
+        <div class="flex-column">
+          <h3>{{i + 1}} - Nombre y apellidos: {{experience.nombreApellidos}}</h3>
+          <h3>Especializacion: {{experience.especializacion}}</h3>
+          <span class="descripcion"><h3>Descripción del perfil: ({{experience.perfil}} -&nbsp;</h3></span>
+
+        </div>
+
+      </span>
+      <span *ngIf="experience.ProgramaProfesional" >
+        <span style="display: flex; width:100%">
+          <h3>{{i + 1}}. Nivel profesional de &nbsp;{{experience.ProgramaProfesional}}</h3>
+        </span>
+
+      </span>
+      <span *ngIf="experience.ProgramaUsuario" >
+        <span style="display: flex; width:100%">
+          <h3>{{i + 1}}. Nivel usuario de &nbsp;{{experience.ProgramaUsuario}}</h3>
+        </span>
+
+      </span>
+      <span *ngIf="experience.center === 'centroDeFormacion'">
+        <span style="display: flex; width:100%">
+          <h3>{{i+ 1}}.&nbsp;{{experience.titleDegreeElement}},</h3>&nbsp;
+            <h3>{{experience.centerElement}}</h3>&nbsp;
+            <h3>({{experience.initialYearElement}}&nbsp;
+              -&nbsp;{{experience.finalYearElement}})</h3>
+        </span>
+
+      </span>
+      <span *ngIf="experience.center === 'universidad'">
+          <span style="display: flex; width:100%">
+            <h3>{{i+ 1}}.&nbsp;{{experience.centerElement}}</h3>&nbsp;
+            <h3>{{experience.titleElement}}</h3>&nbsp;
+            <h3>({{experience.initialYearElement}}&nbsp;
+              -&nbsp;{{experience.finalYearElement}})</h3>
+          </span>
+
+      </span>
+      <span *ngIf="experience.cargo">
+        <div class="flex-column">
+            <span><h3>{{i + 1}} - {{experience.descripTrayect}}</h3></span>
+            <span><h3>{{experience.empresaCargo}}</h3></span>
+            <span><h3>({{experience.fechaInicio}}-&nbsp;{{experience.fechaFinal}})</h3></span>
+        </div>
+      </span>
+      <span style="background-color: white  ;" *ngIf="experience.Idioma">
+        <table >
+          <tbody>
+            <tr>
+              <th scope="col">Idioma:</th>
+              <th scope="col">Comp. Aud</th>
+              <th scope="col">Comp. Lect.:</th>
+              <th scope="col">Inter. Oral:</th>
+              <th scope="col">Exp. Oral: </th>
+              <th scope="col">Exp. Escr.:</th>
+            </tr>
+            <tr>
+              <td>{{experience.Idioma}}</td>
+              <td>{{experience.CompAud}}</td>
+              <td>{{experience.CompLect}}</td>
+              <td>{{experience.InterOral}}</td>
+              <td>{{experience.ExpresOral}}</td>
+              <td>{{experience.ExpresEscrita}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </span>
+      <span *ngIf="experience.proyecto">
+        <div class="flex-column">
+          <span><h3>{{i + 1}}&nbsp; Proyecto: .&nbsp;{{experience.proyecto}}</h3></span>
+          <span><h3>&nbsp; Fecha: ({{experience.fechaProyecto}}&nbsp;-&nbsp;{{experience.fechaFinalProyecto}})</h3></span>
+          <span><h3>&nbsp; Empresa: {{experience.empresaProyecto}}</h3></span>
+          <span><h3>&nbsp; Descripcion: {{experience.descripProyecto}}</h3></span>
+        </div>
+
+      </span>
+      <span *ngIf="experience.ArticuloRevista">
+        <h3>{{i + 1}}.{{experience.ArticuloRevista}} &nbsp;</h3>
+      </span>
+      <span *ngIf="experience.CapituloLibro">
+        <h3>{{i + 1}}.{{experience.CapituloLibro}} &nbsp;</h3>
+      </span>
+      <span *ngIf="experience.PonenciasCongresos">
+        <h3>{{i + 1}}.{{experience.PonenciasCongresos}} &nbsp;</h3>
+      </span>
+
+    </div>
+    <div class="card-university-experiences--delete">
+      <button (click)="deleteExperience(experience, experiences)" mat-icon-button><mat-icon>delete_forever</mat-icon></button>
+    </div>
+  </div>
+  </span>
+
+</div>

@@ -1,0 +1,122 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+.card-university-experiences {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ width: 100%;
+
+
+
+  &--titles{
+    background-color: #B22222;
+    padding: 0 0.5rem;
+    border-radius: 5px;
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+
+  }
+
+  &--delete{
+    display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  }
+  h3 {
+    color: #fff;
+    font-size: 8px;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0;
+    @media (min-height: 600px){
+      line-height: 15px;
+    }
+
+  }
+
+}
+
+.descripcion {
+  display: -webkit-box;
+  /* //FORMATO VERTICAL EN QUE SE LEERA EL TEXTO */
+  -webkit-box-orient: vertical;
+  /* LA CANTIDAD DE LINEAS QUE VAMOS A MOSTRAR ANTES DE CORTARLO */
+  -webkit-line-clamp: 4;
+  /* OCULTA EL RESTO DEL TEXTO */
+  overflow: hidden;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content: center;
+  max-width: 100%;
+}
+
+
+
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  @media(max-width:600px) {
+    font-size: 1rem;
+  }
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+  font-size: 6px;
+}
+
+table th,
+table td {
+  // padding: .625em;
+  font-size: 8px;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Roboto Condensed', Courier, monospace;
+  font-weight: 900;
+
+}
+
+table th {
+  // font-size: 8px;
+  // letter-spacing: .1em;
+  // text-transform: uppercase;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background-color: #B22222;
+}
+
+
+
+/* general styling */
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
