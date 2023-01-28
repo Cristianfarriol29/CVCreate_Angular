@@ -16,6 +16,7 @@ export class StepperComponent implements OnInit {
   especializacion: string = "";
   titulacion: string = "";
   perfil: string = ""
+  email: string = ""
   /********* Universidad, cursos, trayectoria y otros conocimientos ******** */
   experiences: any = [];
   courses: any = [];
@@ -107,14 +108,15 @@ return;
 
 /*********************************************************************************************** */
 
-addProfile (name: string, surname: string, position: string, profile: string){
+addProfile (name: string, surname: string, position: string, profile: string, email: string){
   let nameElement =  assignParameterToHTMLElement(name);
   let surnameElement = assignParameterToHTMLElement(surname);
   let positionElement = assignParameterToHTMLElement(position);
   let profileElement = assignParameterToHTMLElement(profile);
+  let emailElement = assignParameterToHTMLElement(email);
 
 
-  if(nameElement === "" || surnameElement === "" || positionElement === "" || profileElement === "" ){
+  if(nameElement === "" || surnameElement === "" || positionElement === "" || profileElement === "" || emailElement === "" ){
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -125,6 +127,7 @@ addProfile (name: string, surname: string, position: string, profile: string){
     this.nombreApellidos = nameElement + " " + surnameElement;
     this.especializacion = positionElement;
     this.perfil = profileElement;
+    this.email = emailElement
 
       this.profile = [{
         nombreApellidos: nameElement + " " + surnameElement,
@@ -134,7 +137,7 @@ addProfile (name: string, surname: string, position: string, profile: string){
 
   }
 
-  emptyAnInput([name, surname, position, profile])
+  emptyAnInput([name, surname, position, profile, email])
     return
 
 };
@@ -419,8 +422,6 @@ return this.levelOfTool
 
     let associationElement = assignParameterToHTMLElement(association);
 
-
-
     if(associationElement === ""){
       Swal.fire({
         icon: 'error',
@@ -434,7 +435,7 @@ return this.levelOfTool
       })
     }
 
-    console.log(this.associations)
+
 
 emptyAnInput([association])
 
@@ -483,7 +484,9 @@ return;
 
 
   xhr.send(JSON.stringify({
+
     nombreApellidos: this.nombreApellidos,
+    correoElectronico: this.email,
     especializacion: this.especializacion,
     titulacion: this.titulacion,
     perfil: this.perfil,

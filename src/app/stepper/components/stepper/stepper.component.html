@@ -1,224 +1,186 @@
 <div class="stepper-container">
   <form (ngSubmit)="guardar(miFormulario)" #miFormulario="ngForm">
-  <mat-horizontal-stepper linear>
-    <mat-step label="Información personal">
-      <div class="card-container">
-        <div class="card">
-            <label class="form-label card-info" >Información personal <app-info-header [informacion]="'Esta sección es de datos personales, donde tendras que incluir tu nombre, tus apellidos, el puesto en el que te desempeñas y una descripción de tu perfil.'"></app-info-header></label>
-          <div class="card-input-container">
-            <div class="card-input">
-              <h3 class="card-input-title ">1. Nombre:</h3>
-              <input
-                      type="text"
-                      class="form-control"
-                      ngModel
-                      name="nombre"
-                      id="nombre"
-                      value=""
-                      placeholder="Nombre"
-                      title="Nombre"
-                    />
-            </div>
-            <div class="card-input">
-              <h3 class="card-input-title">2. Apellidos:</h3>
-              <input
-                      type="text"
-                      class="form-control"
-                      ngModel
-                      name="apellidos"
-                      id="apellidos"
-                      value=""
-                      placeholder="Apellidos"
-                      title="Apellidos"
-                    />
-            </div>
-
-            <div class="card-input">
-              <h3 class="card-input-title">3. Puesto:</h3>
-              <input
-                      type="text"
-                      class="form-control"
-                      ngModel
-                      name="puesto"
-                      id="puesto"
-                      value=""
-                      placeholder="Puesto"
-                      title="Puesto"
-                    />
-            </div>
-
-            <div class="card-input">
-              <h3 class="card-input-title">4. Perfil: </h3>
-              <textarea
-              ngModel
-              name="perfil"
-              id="perfil"
-              class="form-control"
-              placeholder="Escriba aquí una descripción sobre su perfil.."
-              cols="60" rows="7"
-            ></textarea>
-            </div>
-          </div>
-
-          <div class="add-button">
-            <button (click)="addProfile('nombre', 'apellidos', 'puesto', 'perfil')" class="add-button">Añadir información personal</button>
-          </div>
-
-          <app-experiences-cards [experiences]="profile"></app-experiences-cards>
-
-        </div>
-
-        <div class="card">
-          <label class="form-label card-info" >Formacion universitaria <app-info-header [ejemplo]="['Por ejemplo:', 'Titulacion universitaria: INGENIERO DE CAMINOS, CANALES Y PUERTOS.', 'Año inicio: 2010.', 'Año final: 2015.', 'Universidad: Universidad Politécnica de Nogales.']" [informacion]="infoUniversity"></app-info-header></label>
+    <mat-horizontal-stepper linear>
+      <mat-step label="Información personal">
+        <div class="card-container">
+          <div class="card">
+            <label class="form-label card-info">Información personal <app-info-header
+                [informacion]="'Esta sección es de datos personales, donde tendras que incluir tu nombre, tus apellidos, el puesto en el que te desempeñas y una descripción de tu perfil.'"></app-info-header></label>
             <div class="card-input-container">
-            <div class="card-input">
-                  <h3 class="card-input-title">5. Titulación universitaria:</h3>
-                  <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="titulacionUniversitaria"
-                  id="titulacionUniversitaria"
-                  value=""
-                  placeholder="Titulacion universitaria"
-                  title="titulacionUniversitaria"
-                />
+              <div class="card-input">
+                <h3 class="card-input-title ">0. Correo Electrónico:</h3>
+                <input type="text" class="form-control" ngModel name="correo" id="correo" value=""
+                  placeholder="Ingrese su correo electrónico" title="Correo electrónico" />
+              </div>
+              <div class="card-input">
+                <h3 class="card-input-title ">1. Nombre:</h3>
+                <input type="text" class="form-control" ngModel name="nombre" id="nombre" value="" placeholder="Nombre"
+                  title="Nombre" />
+              </div>
+              <div class="card-input">
+                <h3 class="card-input-title">2. Apellidos:</h3>
+                <input type="text" class="form-control" ngModel name="apellidos" id="apellidos" value=""
+                  placeholder="Apellidos" title="Apellidos" />
+              </div>
+
+              <div class="card-input">
+                <h3 class="card-input-title">3. Puesto:</h3>
+                <input type="text" class="form-control" ngModel name="puesto" id="puesto" value="" placeholder="Puesto"
+                  title="Puesto" />
+              </div>
+
+              <div class="card-input">
+                <h3 class="card-input-title">4. Perfil: </h3>
+                <textarea ngModel name="perfil" id="perfil" class="form-control"
+                  placeholder="Escriba aquí una descripción sobre su perfil.." cols="60" rows="7"></textarea>
+              </div>
+            </div>
+
+            <div class="add-button">
+              <button (click)="addProfile('nombre', 'apellidos', 'puesto', 'perfil', 'correo')"
+                class="add-button">Añadir
+                información personal</button>
+            </div>
+
+            <app-experiences-cards [experiences]="profile"></app-experiences-cards>
+
+          </div>
+
+          <div class="card">
+            <label class="form-label card-info">Formacion universitaria <app-info-header
+                [ejemplo]="['Por ejemplo:', 'Titulacion universitaria: INGENIERO DE CAMINOS, CANALES Y PUERTOS.', 'Año inicio: 2010.', 'Año final: 2015.', 'Universidad: Universidad Politécnica de Nogales.']"
+                [informacion]="infoUniversity"></app-info-header></label>
+            <div class="card-input-container">
+              <div class="card-input">
+                <h3 class="card-input-title">5. Titulación universitaria:</h3>
+                <input type="text" class="form-control" ngModel name="titulacionUniversitaria"
+                  id="titulacionUniversitaria" value="" placeholder="Titulacion universitaria"
+                  title="titulacionUniversitaria" />
               </div>
               <div class="card-input">
                 <h3 class="card-input-subtitle">5.1 Año:</h3>
                 <div class="card-input-year">
 
-                <select  name="añoInicioCargo" id="añoInicioUniversidad">
-                  <option value="" >Inicio</option>
-                  <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
-             <select  name="añoFinalCargo" id="añoFinalUniversidad">
-              <option value="">Final</option>
-              <option value="Cursando" >Cursando</option>
-              <option value={{year}} *ngFor="let year of years">{{year}}</option>
-         </select>
+                  <select name="añoInicioCargo" id="añoInicioUniversidad">
+                    <option value="">Inicio</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
+                  <select name="añoFinalCargo" id="añoFinalUniversidad">
+                    <option value="">Final</option>
+                    <option value="Cursando">Cursando</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
                 </div>
 
               </div>
 
               <div class="card-input">
-                  <div class="card-input-title">
-                    <h3 class="card-input-subtitle">5.2 Universidad:</h3>
-                    <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="universidad"
-                  id="universidad"
-                  value=""
-                  placeholder="Universidad"
-                  title="universidad"
-                />
-                  </div>
+                <div class="card-input-title">
+                  <h3 class="card-input-subtitle">5.2 Universidad:</h3>
+                  <input type="text" class="form-control" ngModel name="universidad" id="universidad" value=""
+                    placeholder="Universidad" title="universidad" />
+                </div>
 
-                  <div class="add-button">
-                    <button (click)="addFormation('universidad', 'titulacionUniversitaria', 'añoInicioUniversidad', 'añoFinalUniversidad')" class="add-button">Añadir formación universitaria</button>
-                  </div>
+                <div class="add-button">
+                  <button
+                    (click)="addFormation('universidad', 'titulacionUniversitaria', 'añoInicioUniversidad', 'añoFinalUniversidad')"
+                    class="add-button">Añadir formación universitaria</button>
+                </div>
 
 
-                  <app-experiences-cards [experiences]="experiences"></app-experiences-cards>
+                <app-experiences-cards [experiences]="experiences"></app-experiences-cards>
               </div>
+            </div>
+
           </div>
 
-        </div>
-
-        <div class="card">
-            <label class="form-label card-info">Formación<app-info-header [ejemplo]="['Por ejemplo:', 'Idiomas: Inglés.', 'Comprensión auditiva: C1+', 'Comprensión Léctora: C1+', 'Interpretación Oral: C1+', 'Expresión Oral: C1+', 'Expresión Escrita: C1+']" [informacion]="'En esta sección cargarás los idiomas que hablas y los respectivos niveles de comprensión auditiva, escrita y oral'"></app-info-header></label>
+          <div class="card">
+            <label class="form-label card-info">Formación<app-info-header
+                [ejemplo]="['Por ejemplo:', 'Idiomas: Inglés.', 'Comprensión auditiva: C1+', 'Comprensión Léctora: C1+', 'Interpretación Oral: C1+', 'Expresión Oral: C1+', 'Expresión Escrita: C1+']"
+                [informacion]="'En esta sección cargarás los idiomas que hablas y los respectivos niveles de comprensión auditiva, escrita y oral'"></app-info-header></label>
             <div class="card-input-container">
               <div class="card-input">
                 <h3 class="card-input-title">7. Idiomas:</h3>
-                <input
-                type="text"
-                class="form-control"
-                ngModel
-                name="idioma"
-                id="idioma"
-                value=""
-                placeholder="Idioma"
-                title="idioma"
-              />
-            </div>
-
-            <div class="card-input-language">
-              <h3 class="card-input-subtitle-language">7.2 Comprensión Auditiva:</h3>
-              <div class="flex-row">
-            <app-level-select [idSelectInput]="'listening-level'"  (addLanguage)="compAud = $event"></app-level-select>
+                <input type="text" class="form-control" ngModel name="idioma" id="idioma" value="" placeholder="Idioma"
+                  title="idioma" />
               </div>
-            </div>
 
-            <div class="card-input-language">
-              <h3 class="card-input-subtitle-language">7.3 Comprensión Lectora:</h3>
-              <div  class="flex-row">
-            <app-level-select [idSelectInput]="'reading-level'" (addLanguage)="compLect = $event"></app-level-select>
+              <div class="card-input-language">
+                <h3 class="card-input-subtitle-language">7.2 Comprensión Auditiva:</h3>
+                <div class="flex-row">
+                  <app-level-select [idSelectInput]="'listening-level'"
+                    (addLanguage)="compAud = $event"></app-level-select>
+                </div>
               </div>
-            </div>
 
-            <div class="card-input-language">
-              <h3 class="card-input-subtitle-language">7.4 Interpretación oral:</h3>
-              <div  class="flex-row">
-            <app-level-select [idSelectInput]="'speaking-level'" (addLanguage)="interOral = $event"></app-level-select>
+              <div class="card-input-language">
+                <h3 class="card-input-subtitle-language">7.3 Comprensión Lectora:</h3>
+                <div class="flex-row">
+                  <app-level-select [idSelectInput]="'reading-level'"
+                    (addLanguage)="compLect = $event"></app-level-select>
+                </div>
               </div>
-            </div>
 
-            <div class="card-input-language">
-              <h3 class="card-input-subtitle-language">7.1 Expresión oral:</h3>
-              <div  class="flex-row">
-            <app-level-select [idSelectInput]="'speaking-expression-level'" (addLanguage)="expOral = $event"></app-level-select>
+              <div class="card-input-language">
+                <h3 class="card-input-subtitle-language">7.4 Interpretación oral:</h3>
+                <div class="flex-row">
+                  <app-level-select [idSelectInput]="'speaking-level'"
+                    (addLanguage)="interOral = $event"></app-level-select>
+                </div>
               </div>
-            </div>
 
-            <div class="card-input-language">
-              <h3 class="card-input-subtitle-language">7.1 Expresión escrita:</h3>
-              <div  class="flex-row">
-            <app-level-select [idSelectInput]="'reading-expression-level'" (addLanguage)="expEscrita = $event"></app-level-select>
+              <div class="card-input-language">
+                <h3 class="card-input-subtitle-language">7.1 Expresión oral:</h3>
+                <div class="flex-row">
+                  <app-level-select [idSelectInput]="'speaking-expression-level'"
+                    (addLanguage)="expOral = $event"></app-level-select>
+                </div>
               </div>
+
+              <div class="card-input-language">
+                <h3 class="card-input-subtitle-language">7.1 Expresión escrita:</h3>
+                <div class="flex-row">
+                  <app-level-select [idSelectInput]="'reading-expression-level'"
+                    (addLanguage)="expEscrita = $event"></app-level-select>
+                </div>
+              </div>
+
+
             </div>
 
+
+            <div class="add-button">
+              <button
+                (click)="addLanguage(['idioma', 'listening-level', 'reading-level', 'speaking-level', 'speaking-expression-level', 'reading-expression-level' ])"
+                class="add-button">Añadir idioma</button>
+            </div>
+
+            <app-experiences-cards [experiences]="languages"></app-experiences-cards>
+
+          </div>
 
         </div>
-
-
-        <div class="add-button">
-          <button (click)="addLanguage(['idioma', 'listening-level', 'reading-level', 'speaking-level', 'speaking-expression-level', 'reading-expression-level' ])" class="add-button">Añadir idioma</button>
+        <div style="display: flex; align-items: center; justify-content:center; gap: 1rem; padding:2rem">
+          <button mat-stroked-button color="primary" matStepperNext>Siguiente</button>
         </div>
 
-        <app-experiences-cards [experiences]="languages"></app-experiences-cards>
-
-      </div>
-
-      </div>
-      <div style="display: flex; align-items: center; justify-content:center; gap: 1rem; padding:2rem">
-        <button mat-stroked-button color="primary" matStepperNext>Siguiente</button>
-      </div>
-
-    </mat-step>
-    <mat-step label="Formación">
-      <div class="card-container">
-        <div class="card">
-          <label class="form-label card-info">Formación complementaria<app-info-header [ejemplo]="['Por ejemplo:', 'Curso: Cursos de MATLAB avanzado', 'Inicio de cursado: 2011', 'Fin de cursado: 2012', 'Centro de Formacion: U.de Castilla La Mancha']" [informacion]="'En esta sección cargarás los cursos que hayas hecho, indicando el año que iniciaste dicho curso, el año en que lo finalizaste y el lugar en el que lo hayas realizado'"></app-info-header></label>
+      </mat-step>
+      <mat-step label="Formación">
+        <div class="card-container">
+          <div class="card">
+            <label class="form-label card-info">Formación complementaria<app-info-header
+                [ejemplo]="['Por ejemplo:', 'Curso: Cursos de MATLAB avanzado', 'Inicio de cursado: 2011', 'Fin de cursado: 2012', 'Centro de Formacion: U.de Castilla La Mancha']"
+                [informacion]="'En esta sección cargarás los cursos que hayas hecho, indicando el año que iniciaste dicho curso, el año en que lo finalizaste y el lugar en el que lo hayas realizado'"></app-info-header></label>
             <div class="card-input-container">
               <div class="card-input">
-                  <h3 class="card-input-title">6. Curso:</h3>
-                  <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="curso"
-                  id="curso"
-                  value=""
-                  placeholder="Curso"
-                  title="curso"
-                />
+                <h3 class="card-input-title">6. Curso:</h3>
+                <input type="text" class="form-control" ngModel name="curso" id="curso" value="" placeholder="Curso"
+                  title="curso" />
               </div>
 
-                <h3 class="card-input-subtitle">6.1 Año:</h3>
-                <div class="card-input-year">
-                  <!-- <input
+              <h3 class="card-input-subtitle">6.1 Año:</h3>
+              <div class="card-input-year">
+                <!-- <input
                   numbersOnly
                   maxlength="4"
                   type="text"
@@ -242,475 +204,355 @@
                   placeholder="Fin de cursado"
                   title="añoFinalCurso"
                 /> -->
-                <select  name="añoInicioCurso" id="añoInicioCurso">
-                  <option value="" >Inicio</option>
+                <select name="añoInicioCurso" id="añoInicioCurso">
+                  <option value="">Inicio</option>
                   <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
-             <select  name="añoFinalCurso" id="añoFinalCurso">
-              <option value="">Final</option>
-              <option value="Cursando" >Cursando</option>
-              <option value={{year}} *ngFor="let year of years">{{year}}</option>
-         </select>
+                </select>
+                <select name="añoFinalCurso" id="añoFinalCurso">
+                  <option value="">Final</option>
+                  <option value="Cursando">Cursando</option>
+                  <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                </select>
 
               </div>
 
               <div class="card-input">
-                  <div class="card-input-title">
-                    <h3 class="card-input-subtitle">6.2 Centro de Formación:</h3>
-                    <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="centroDeFormacion"
-                  id="centroDeFormacion"
-                  value=""
-                  placeholder="Centro de formación"
-                  title="centroDeFormacion"
-                />
-                  </div>
+                <div class="card-input-title">
+                  <h3 class="card-input-subtitle">6.2 Centro de Formación:</h3>
+                  <input type="text" class="form-control" ngModel name="centroDeFormacion" id="centroDeFormacion"
+                    value="" placeholder="Centro de formación" title="centroDeFormacion" />
+                </div>
 
-                  <div class="add-button">
-                    <button (click)="addFormation('centroDeFormacion', 'curso', 'añoInicioCurso', 'añoFinalCurso')" class="add-button">Añadir curso</button>
-                  </div>
+                <div class="add-button">
+                  <button (click)="addFormation('centroDeFormacion', 'curso', 'añoInicioCurso', 'añoFinalCurso')"
+                    class="add-button">Añadir curso</button>
+                </div>
 
-                  <app-experiences-cards [experiences]="courses"></app-experiences-cards>
+                <app-experiences-cards [experiences]="courses"></app-experiences-cards>
               </div>
+            </div>
           </div>
-        </div>
 
-        <div class="card">
-          <label class="form-label card-info" >Formación complementaria <app-info-header [informacion]="'En esta sección podrás detallar las conferencias y/o talleres que has asistido o impartido, indicando también el lugar y el año en que se realizó.'" [ejemplo]="['Por ejemplo:','Conferencias y talleres: Asistencia y ponencia en las Jornadas de Puertos y Costas','Lugar: Santander','Año: 2010' ]"></app-info-header></label>
+          <div class="card">
+            <label class="form-label card-info">Formación complementaria <app-info-header
+                [informacion]="'En esta sección podrás detallar las conferencias y/o talleres que has asistido o impartido, indicando también el lugar y el año en que se realizó.'"
+                [ejemplo]="['Por ejemplo:','Conferencias y talleres: Asistencia y ponencia en las Jornadas de Puertos y Costas','Lugar: Santander','Año: 2010' ]"></app-info-header></label>
             <div class="card-input-container">
               <div class="card-input">
-                  <h3 class="card-input-title">7. Conferencias y talleres:</h3>
-                  <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="conferencia"
-                  id="conferencia"
-                  value=""
-                  placeholder="Conferencias y talleres"
-                  title="conferencia"
-                />
+                <h3 class="card-input-title">7. Conferencias y talleres:</h3>
+                <input type="text" class="form-control" ngModel name="conferencia" id="conferencia" value=""
+                  placeholder="Conferencias y talleres" title="conferencia" />
               </div>
 
-                <h3 class="card-input-subtitle">7.1 Lugar:</h3>
-                <div class="card-input">
-                  <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="lugarConferencia"
-                  id="lugarConferencia"
-                  value=""
-                  placeholder="Lugar donde se realizó"
-                  title="lugarConferencia"
-                />
+              <h3 class="card-input-subtitle">7.1 Lugar:</h3>
+              <div class="card-input">
+                <input type="text" class="form-control" ngModel name="lugarConferencia" id="lugarConferencia" value=""
+                  placeholder="Lugar donde se realizó" title="lugarConferencia" />
 
 
               </div>
 
               <div class="card-input">
-                  <div class="card-input-title">
-                    <h3 class="card-input-subtitle">6.3 Año:</h3>
-                <select  name="añoConferencia" id="añoConferencia">
-                  <option value="">Año de conferencia</option>
-                  <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
+                <div class="card-input-title">
+                  <h3 class="card-input-subtitle">6.3 Año:</h3>
+                  <select name="añoConferencia" id="añoConferencia">
+                    <option value="">Año de conferencia</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
 
-                  </div>
+                </div>
 
-                  <div class="add-button">
-                    <button (click)="addConference('conferencia', 'lugarConferencia', 'añoConferencia')" class="add-button">Añadir conferencias y talleres</button>
-                  </div>
+                <div class="add-button">
+                  <button (click)="addConference('conferencia', 'lugarConferencia', 'añoConferencia')"
+                    class="add-button">Añadir conferencias y talleres</button>
+                </div>
 
-                  <app-experiences-cards [experiences]="conferences"></app-experiences-cards>
+                <app-experiences-cards [experiences]="conferences"></app-experiences-cards>
               </div>
 
 
+            </div>
+
           </div>
 
-        </div>
-
-        <div class="card">
-          <label class="form-label card-info" >Otros conocimientos<app-info-header [informacion]="'En esta sección tienes que indicar los programas utilizas, y en que nivel los dominas.'" [ejemplo]="['Por ejemplo:', 'Manejo de programas: Programas de propagación de oleaje: SWAN, SWASH', 'Nivel Profesional ☒ ', 'Nivel Usuario ☐' ]"></app-info-header></label>
+          <div class="card">
+            <label class="form-label card-info">Otros conocimientos<app-info-header
+                [informacion]="'En esta sección tienes que indicar los programas utilizas, y en que nivel los dominas.'"
+                [ejemplo]="['Por ejemplo:', 'Manejo de programas: Programas de propagación de oleaje: SWAN, SWASH', 'Nivel Profesional ☒ ', 'Nivel Usuario ☐' ]"></app-info-header></label>
             <div class="card-input-container">
               <div class="card-input">
                 <h3 class="card-input-title">Manejo de programas:</h3>
                 <div style="display: flex; flex-direction: column; ">
-                <textarea
-              ngModel
-              name="herramienta"
-              id="herramienta"
-              class="form-control"
-              placeholder="Descripción breve sobre el programa que maneja.."
-              cols="15" rows="3"
-            ></textarea>
-                <span style="margin-top: 0.5rem; display: flex; flex-direction:column; justify-content: center; align-items: center;">
-                  <span style="display: flex; flex-direction:row; align-items: center; gap: 1rem;">
-                    <p>Nivel profesional</p>
-                    <input
-                    type="radio"
-                    id="nivelProfesional"
-                    value="Nivel profesional"
-                    name="nivelProfesional"
-                    (change)="levelOfToolManagement('nivelProfesional')"
-                    />
+                  <textarea ngModel name="herramienta" id="herramienta" class="form-control"
+                    placeholder="Descripción breve sobre el programa que maneja.." cols="15" rows="6"></textarea>
+                  <span
+                    style="margin-top: 0.5rem; display: flex; flex-direction:column; justify-content: center; align-items: center;">
+                    <span style="display: flex; flex-direction:row; align-items: center; gap: 1rem;">
+                      <p>Nivel profesional</p>
+                      <input type="radio" id="nivelProfesional" value="Nivel profesional" name="nivelProfesional"
+                        (change)="levelOfToolManagement('nivelProfesional')" />
+                    </span>
+
+                    <span style="display: flex; flex-direction:row; align-items: center;gap: 2.48rem;">
+                      <p>Nivel usuario</p>
+                      <input type="radio" id="nivelUsuario" value="Nivel usuario" name="nivelUsuario"
+                        (change)="levelOfToolManagement('nivelUsuario')" />
+                    </span>
+
                   </span>
 
-                  <span style="display: flex; flex-direction:row; align-items: center;gap: 2.48rem;">
-                    <p>Nivel usuario</p>
-                    <input
-                    type="radio"
-                    id="nivelUsuario"
-                    value="Nivel usuario"
-                    name="nivelUsuario"
-                    (change)="levelOfToolManagement('nivelUsuario')"
-                    />
-                  </span>
 
-                </span>
+                  <div class="add-button">
+                    <button (click)="addAnotherKnowledges('herramienta')">Añadir otros conocimientos</button>
+                  </div>
+
+                  <app-experiences-cards [experiences]="professionalLevel"></app-experiences-cards>
+                  <app-experiences-cards [experiences]="userLevel"></app-experiences-cards>
 
 
-                <div class="add-button">
-                  <button (click)="addAnotherKnowledges('herramienta')">Añadir otros conocimientos</button>
                 </div>
 
-                <app-experiences-cards [experiences]="professionalLevel"></app-experiences-cards>
-                <app-experiences-cards [experiences]="userLevel"></app-experiences-cards>
+              </div>
+            </div>
 
+          </div>
+
+
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content:center; gap: 1rem; padding:2rem">
+          <button mat-stroked-button color="primary" matStepperPrevious>Atrás</button>
+          <button mat-stroked-button color="primary" matStepperNext>Siguiente</button>
+        </div>
+      </mat-step>
+
+
+      <!--------- ----------->
+
+
+      <mat-step label="Trayectoria profesional y Proyectos">
+        <div class="card-container">
+          <div class="card">
+            <label class="form-label card-info">Trayectoria profesional<app-info-header
+                [informacion]="'En esta sección tienes que detallar tus experiencias profesionales.'"
+                [ejemplo]="['Por ejemplo:', 'Cargo: RESPONSABLE DE HIDRODINÁMICA DE LA DIVISÓN DE ENERGÍA EÓLICA', 'Empresa: TYPSA. España', 'Descripcion del cargo: Jefe de proyectos especiales. Especialista en hidrodinámica. Responsable de estudios para la determinación de las cargas medioambientales y de estabilidad de parques eólicos offshore Responsable de actividades en proyectos de I+D+i. ', 'Año inicio: 2015', 'Año final: Actual ' ]"></app-info-header></label>
+
+            <div class="card-input-container">
+              <div class="card-input">
+                <h3 class="card-input-title">8. Cargo:</h3>
+                <input type="text" class="form-control" ngModel name="cargo" id="cargo" value="" placeholder="Cargo"
+                  title="cargo" />
+              </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">8.1 Empresa:</h3>
+                <input type="text" class="form-control" ngModel name="empresaCargo" id="empresaCargo" value=""
+                  placeholder="Empresa" title="empresaCargo" />
+              </div>
+
+              <div class="card-input">
+                <h3 class="card-input-subtitle">8.2 Descripción del cargo:</h3>
+                <textarea ngModel class="form-control" name="descripcionCargo" id="descripcionCargo" value=""
+                  placeholder="Descripción del cargo" cols="15" rows="6"></textarea>
+              </div>
+
+              <div class="card-input">
+                <h3 class="card-input-subtitle">8.3 Año:</h3>
+                <div class="card-input-year">
+                  <select name="añoInicioCargo" id="añoInicioCargo">
+                    <option value="">Inicio</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
+                  <select name="añoFinalCargo" id="añoFinalCargo">
+                    <option value="">Final</option>
+                    <option value="Actual">Actual</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
+                </div>
+
+                <div class="add-button">
+                  <button
+                    (click)="addPosition('cargo', 'empresaCargo', 'descripcionCargo', 'añoInicioCargo', 'añoFinalCargo')"
+                    class="add-button">Añadir cargo</button>
+                </div>
+
+                <app-experiences-cards [experiences]="positions"></app-experiences-cards>
 
               </div>
 
+
+            </div>
+          </div>
+
+          <!-- 2da tarjeta de trayectoria y proyectos -->
+
+          <div class="card">
+            <label class="form-label card-info">Proyectos<app-info-header
+                [informacion]="'En esta sección tienes que detallar tus experiencias en proyectos.'"
+                [ejemplo]="['Por ejemplo:', 'Proyecto: REVISIÓN DE LAS CIMENTACIONES INTERMAREALES DE NANGA  ', 'Fecha en la que comenzó el proyecto: Enero - 2015', 'Fecha en la que finalizó el proyecto: Marzo - 2021', 'Empresa: Nashimoto', 'Descripcion del proyecto: Estudio técnico para la revisión del diseño de cimentaciones intermareales. Jefe de proyecto y responsable de hidrodinámica. Revisión del diseño para 18 cimentaciones ubicadas en Nanga (Japón), algunas de ellas dispuestas en profundidades reducidas y otras sobre dique. Para las dispuestas en el mar se realizaron cálculos hidrodinámicos de detalle.', 'Pais donde se realizo el proyecto: JAPON' ]"></app-info-header></label>
+            <div class="card-input-container">
+              <div class="card-input">
+                <h3 class="card-input-title">9. Proyecto:</h3>
+                <input type="text" class="form-control" ngModel name="proyecto" id="proyecto" value=""
+                  placeholder="Proyecto" title="proyecto" />
               </div>
-          </div>
 
-        </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">9.1.1 Fecha en la que comenzó el proyecto:</h3>
+                <div class="card-input-year">
+                  <select name="mesProyecto" id="mesProyecto">
+                    <option value="">Mes</option>
+                    <option value={{i+1}} *ngFor="let month of months; index as i">{{month}}</option>
+                  </select>
+                  <select name="añoProyecto" id="añoProyecto">
+                    <option value="">Año</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
+                </div>
+                <h3 class="card-input-subtitle">9.1.2 Fecha en la que finalizó el proyecto:</h3>
+                <div class="card-input-year">
+                  <select name="mesFinalProyecto" id="mesFinalProyecto">
+                    <option value="">Mes</option>
+                    <option value={{i+1}} *ngFor="let month of months; index as i">{{month}}</option>
+                  </select>
+                  <select name="añoFinalProyecto" id="añoFinalProyecto">
+                    <option value="">Año</option>
+                    <option value={{year}} *ngFor="let year of years">{{year}}</option>
+                  </select>
 
+                </div>
+                <div style="display: flex; align-items: center; border: 1px solid #673ab7; padding: 0.3rem">
+                  <p style="font-size: 13px;">Actualmente estoy trabajando en este proyecto</p>
+                  <input (click)="hideFinalProject()" type="checkbox" id="actualProject">
+                </div>
+              </div>
 
-      </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">9.2 Empresa:</h3>
+                <input type="text" class="form-control" ngModel name="empresaProyecto" id="empresaProyecto" value=""
+                  placeholder="Empresa" title="empresaProyecto" />
+              </div>
 
-      <div style="display: flex; align-items: center; justify-content:center; gap: 1rem; padding:2rem">
-        <button mat-stroked-button color="primary" matStepperPrevious>Atrás</button>
-        <button mat-stroked-button color="primary" matStepperNext>Siguiente</button>
-      </div>
-    </mat-step>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">9.3 Descripción del proyecto:</h3>
 
+                <textarea ngModel class="form-control" name="descripcionProyecto" id="descripcionProyecto" value=""
+                  placeholder="Descripcion sobre el proyecto" title="descripcionProyecto" cols="15" rows="6"></textarea>
+              </div>
 
-    <!--------- ----------->
+              <div class="card-input">
+                <h3 class="card-input-subtitle">9.3 País donde se realizó el proyecto:</h3>
+                <input type="text" class="form-control" ngModel name="paisProyecto" id="paisProyecto" value=""
+                  placeholder="País donde se realizó el proyecto" title="paisProyecto" />
+              </div>
 
+              <div class="add-button">
+                <button
+                  (click)="addProject('proyecto', 'mesProyecto', 'añoProyecto','mesFinalProyecto', 'añoFinalProyecto', 'empresaProyecto', 'descripcionProyecto', 'paisProyecto')"
+                  class="add-button">Añadir proyecto</button>
+              </div>
 
-    <mat-step label="Trayectoria profesional y Proyectos">
-      <div class="card-container">
-        <div class="card">
-          <label class="form-label card-info" >Trayectoria profesional<app-info-header [informacion]="'En esta sección tienes que detallar tus experiencias profesionales.'" [ejemplo]="['Por ejemplo:', 'Cargo: RESPONSABLE DE HIDRODINÁMICA DE LA DIVISÓN DE ENERGÍA EÓLICA', 'Empresa: TYPSA. España', 'Descripcion del cargo: Jefe de proyectos especiales. Especialista en hidrodinámica. Responsable de estudios para la determinación de las cargas medioambientales y de estabilidad de parques eólicos offshore Responsable de actividades en proyectos de I+D+i. ', 'Año inicio: 2015', 'Año final: Actual ' ]"></app-info-header></label>
+              <app-experiences-cards [experiences]="projects"></app-experiences-cards>
 
-          <div class="card-input-container">
-           <div class="card-input">
-             <h3 class="card-input-title">8. Cargo:</h3>
-             <input
-                   type="text"
-                   class="form-control"
-                   ngModel
-                   name="cargo"
-                   id="cargo"
-                   value=""
-                   placeholder="Cargo"
-                   title="cargo"
-                 />
-           </div>
-           <div class="card-input">
-            <h3 class="card-input-subtitle">8.1 Empresa:</h3>
-            <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="empresaCargo"
-                  id="empresaCargo"
-                  value=""
-                  placeholder="Empresa"
-                  title="empresaCargo"
-                />
-          </div>
-
-          <div class="card-input">
-            <h3 class="card-input-subtitle">8.2 Descripción del cargo:</h3>
-                <textarea
-                  ngModel
-                  class="form-control"
-                  name="descripcionCargo"
-                  id="descripcionCargo"
-                  value=""
-                  placeholder="Descripción del cargo"
-              cols="15" rows="3"
-            ></textarea>
-          </div>
-
-          <div class="card-input">
-            <h3 class="card-input-subtitle">8.3 Año:</h3>
-            <div class="card-input-year">
-             <select  name="añoInicioCargo" id="añoInicioCargo">
-                  <option value="" >Inicio</option>
-                  <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
-             <select  name="añoFinalCargo" id="añoFinalCargo">
-              <option value="">Final</option>
-              <option value="Actual" >Actual</option>
-              <option value={{year}} *ngFor="let year of years">{{year}}</option>
-         </select>
             </div>
-
-            <div class="add-button">
-              <button (click)="addPosition('cargo', 'empresaCargo', 'descripcionCargo', 'añoInicioCargo', 'añoFinalCargo')" class="add-button">Añadir cargo</button>
-            </div>
-
-            <app-experiences-cards [experiences]="positions"></app-experiences-cards>
-
-        </div>
-
-
           </div>
         </div>
 
-        <!-- 2da tarjeta de trayectoria y proyectos -->
 
-        <div class="card">
-          <label class="form-label card-info" >Proyectos<app-info-header [informacion]="'En esta sección tienes que detallar tus experiencias en proyectos.'" [ejemplo]="['Por ejemplo:', 'Proyecto: REVISIÓN DE LAS CIMENTACIONES INTERMAREALES DE NANGA  ', 'Fecha en la que comenzó el proyecto: Enero - 2015', 'Fecha en la que finalizó el proyecto: Marzo - 2021', 'Empresa: Nashimoto', 'Descripcion del proyecto: Estudio técnico para la revisión del diseño de cimentaciones intermareales. Jefe de proyecto y responsable de hidrodinámica. Revisión del diseño para 18 cimentaciones ubicadas en Nanga (Japón), algunas de ellas dispuestas en profundidades reducidas y otras sobre dique. Para las dispuestas en el mar se realizaron cálculos hidrodinámicos de detalle.', 'Pais donde se realizo el proyecto: JAPON' ]"></app-info-header></label>
-          <div class="card-input-container">
-            <div class="card-input">
-              <h3 class="card-input-title">9. Proyecto:</h3>
-              <input
-                    type="text"
-                    class="form-control"
-                    ngModel
-                    name="proyecto"
-                    id="proyecto"
-                    value=""
-                    placeholder="Proyecto"
-                    title="proyecto"
-                  />
-            </div>
 
-            <div class="card-input">
-              <h3 class="card-input-subtitle">9.1.1 Fecha en la que comenzó el proyecto:</h3>
-                  <div class="card-input-year">
-                    <select  name="mesProyecto" id="mesProyecto">
-                      <option value="">Mes</option>
-                      <option value={{i+1}} *ngFor="let month of months; index as i">{{month}}</option>
-                 </select>
-                 <select  name="añoProyecto" id="añoProyecto">
-                  <option value="">Año</option>
-                  <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
-                  </div>
-                  <h3 class="card-input-subtitle">9.1.2 Fecha en la que finalizó el proyecto:</h3>
-                  <div class="card-input-year">
-                    <select  name="mesFinalProyecto" id="mesFinalProyecto">
-                      <option value="">Mes</option>
-                      <option value={{i+1}} *ngFor="let month of months; index as i">{{month}}</option>
-                 </select>
-                 <select  name="añoFinalProyecto" id="añoFinalProyecto" >
-                  <option value="">Año</option>
-                  <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
-
-                  </div>
-                  <div style="display: flex; align-items: center">
-                    <p style="font-size: 8px;">Actualmente estoy trabajando en este proyecto</p>
-                    <input (click)="hideFinalProject()" type="checkbox" id="actualProject">
-                  </div>
-            </div>
-
-            <div class="card-input">
-              <h3 class="card-input-subtitle">9.2 Empresa:</h3>
-              <input
-                    type="text"
-                    class="form-control"
-                    ngModel
-                    name="empresaProyecto"
-                    id="empresaProyecto"
-                    value=""
-                    placeholder="Empresa"
-                    title="empresaProyecto"
-                  />
-            </div>
-
-            <div class="card-input">
-              <h3 class="card-input-subtitle">9.3 Descripción del proyecto:</h3>
-
-                  <textarea
-                  ngModel
-                  class="form-control"
-                    name="descripcionProyecto"
-                    id="descripcionProyecto"
-                    value=""
-                    placeholder="Descripcion sobre el proyecto"
-                    title="descripcionProyecto"
-              cols="15" rows="3"
-            ></textarea>
-            </div>
-
-            <div class="card-input">
-              <h3 class="card-input-subtitle">9.3 País donde se realizó el proyecto:</h3>
-              <input
-                    type="text"
-                    class="form-control"
-                    ngModel
-                    name="paisProyecto"
-                    id="paisProyecto"
-                    value=""
-                    placeholder="País donde se realizó el proyecto"
-                    title="paisProyecto"
-                  />
-            </div>
-
-            <div class="add-button">
-              <button (click)="addProject('proyecto', 'mesProyecto', 'añoProyecto','mesFinalProyecto', 'añoFinalProyecto', 'empresaProyecto', 'descripcionProyecto', 'paisProyecto')" class="add-button">Añadir proyecto</button>
-            </div>
-
-            <app-experiences-cards [experiences]="projects"></app-experiences-cards>
-
-            </div>
+        <div style="display: flex; align-items: center; justify-content:center; gap: 1rem; padding:2rem">
+          <button mat-stroked-button color="primary" matStepperPrevious>Atrás</button>
+          <button mat-stroked-button color="primary" matStepperNext>Siguiente</button>
         </div>
-      </div>
 
+      </mat-step>
 
-
-      <div style="display: flex; align-items: center; justify-content:center; gap: 1rem; padding:2rem">
-        <button mat-stroked-button color="primary" matStepperPrevious>Atrás</button>
-        <button mat-stroked-button color="primary" matStepperNext>Siguiente</button>
-      </div>
-
-    </mat-step>
-
-    <mat-step label="Publicaciones y asociaciones técnicas">
-      <div class="card-container">
-      <div class="card">
-        <label>Publicaciones</label>
-        <div class="card-input-container">
-          <div class="card-input">
-            <h3 class="card-input-subtitle">10.1 Tipo de publicación:</h3>
+      <mat-step label="Publicaciones y asociaciones técnicas">
+        <div class="card-container">
+          <div class="card">
+            <label>Publicaciones</label>
+            <div class="card-input-container">
+              <div class="card-input">
+                <h3 class="card-input-subtitle">10.1 Tipo de publicación:</h3>
                 <select name="tipoPublicacion" id="tipoPublicacion">
                   <option value="">Seleccione el tipo de publicación</option>
                   <option value="articulosEnRevistas">Articulos en revistas</option>
                   <option value="capitulosEnLibros">Capitulos en libros</option>
                   <option value="ponenciasEnCongresos">Ponencias en congresos</option>
                 </select>
-          </div>
+              </div>
 
-          <div class="card-input">
-            <h3 class="card-input-subtitle">10.2 Autores:</h3>
-            <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="autoresPublicacion"
-                  id="autoresPublicacion"
-                  value=""
-                  placeholder="Autores de la publicación"
-                  title="autoresPublicacion"
-                />
-          </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">10.2 Autores:</h3>
+                <input type="text" class="form-control" ngModel name="autoresPublicacion" id="autoresPublicacion"
+                  value="" placeholder="Autores de la publicación" title="autoresPublicacion" />
+              </div>
 
 
-          <div class="card-input">
-            <h3 class="card-input-subtitle">10.3 Titulo de la publicación:</h3>
-            <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="tituloPublicacion"
-                  id="tituloPublicacion"
-                  value=""
-                  placeholder="Titulo de la publicación"
-                  title="titiuloPublicacion"
-                />
-          </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">10.3 Titulo de la publicación:</h3>
+                <input type="text" class="form-control" ngModel name="tituloPublicacion" id="tituloPublicacion" value=""
+                  placeholder="Titulo de la publicación" title="titiuloPublicacion" />
+              </div>
 
 
-          <div class="card-input">
-            <h3 class="card-input-subtitle">10.4 Editorial o revista:</h3>
-            <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="canalPublicacion"
-                  id="canalPublicacion"
-                  value=""
-                  placeholder="Editorial o revista"
-                  title="canalPublicacion"
-                />
-          </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">10.4 Editorial o revista:</h3>
+                <input type="text" class="form-control" ngModel name="canalPublicacion" id="canalPublicacion" value=""
+                  placeholder="Editorial o revista" title="canalPublicacion" />
+              </div>
 
-          <div class="card-input">
-            <h3 class="card-input-subtitle">10.5 Páginas de la publicación:</h3>
-            <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="paginasPublicacion"
-                  id="paginasPublicacion"
-                  value=""
-                  placeholder="Paginas de la publicación"
-                  title="paginasPublicacion"
-                />
-          </div>
+              <div class="card-input">
+                <h3 class="card-input-subtitle">10.5 Páginas de la publicación:</h3>
+                <input type="text" class="form-control" ngModel name="paginasPublicacion" id="paginasPublicacion"
+                  value="" placeholder="Paginas de la publicación" title="paginasPublicacion" />
+              </div>
 
 
-          <div class="card-input">
-            <h3 class="card-input-subtitle">10.6 Año de la publicación:</h3>
-                <select  name="añoPublicacion" id="añoPublicacion">
+              <div class="card-input">
+                <h3 class="card-input-subtitle">10.6 Año de la publicación:</h3>
+                <select name="añoPublicacion" id="añoPublicacion">
                   <option value="">Año</option>
                   <option value={{year}} *ngFor="let year of years">{{year}}</option>
-             </select>
+                </select>
+              </div>
+
+              <div class="add-button">
+                <button
+                  (click)="addPublication('tipoPublicacion', 'autoresPublicacion', 'tituloPublicacion', 'canalPublicacion', 'paginasPublicacion', 'añoPublicacion' )"
+                  class="add-button">Añadir publicación</button>
+              </div>
+
+              <app-experiences-cards [experiences]="publications"></app-experiences-cards>
+            </div>
+
+
+
+
           </div>
 
-          <div class="add-button">
-            <button (click)="addPublication('tipoPublicacion', 'autoresPublicacion', 'tituloPublicacion', 'canalPublicacion', 'paginasPublicacion', 'añoPublicacion' )" class="add-button">Añadir publicación</button>
+          <div class="card">
+            <label>Asociaciones Técnicas</label>
+            <div class="card-input-container">
+              <div class="card-input">
+                <h3 class="card-input-title">10. Asociación:</h3>
+                <input type="text" class="form-control" ngModel name="asociacion" id="asociacion" value=""
+                  placeholder="Asociación" title="asociacion" />
+              </div>
+
+              <div class="add-button">
+                <button (click)="addAssociations('asociacion')" class="add-button">Añadir asociación técnica</button>
+              </div>
+            </div>
+            <app-experiences-cards [experiences]="associations"></app-experiences-cards>
           </div>
 
-          <app-experiences-cards  [experiences]="publications"></app-experiences-cards>
         </div>
-
-
-
-
-      </div>
-
-      <div class="card">
-        <label>Asociaciones Técnicas</label>
-        <div class="card-input-container">
-          <div class="card-input">
-            <h3 class="card-input-title">10. Asociación:</h3>
-            <input
-                  type="text"
-                  class="form-control"
-                  ngModel
-                  name="asociacion"
-                  id="asociacion"
-                  value=""
-                  placeholder="Asociación"
-                  title="asociacion"
-                />
-          </div>
-
-          <div class="add-button">
-            <button (click)="addAssociations('asociacion')" class="add-button">Añadir asociación técnica</button>
-          </div>
+        <div style="display: flex; align-items: center; justify-content:center; padding:2rem;gap: 2rem;">
+          <button mat-stroked-button color="primary" matStepperPrevious>Atrás</button>
+          <button class="button-send" type="submit" (click)="send()">Enviar</button>
         </div>
-      </div>
-
-    </div>
-      <div style="display: flex; align-items: center; justify-content:center; padding:2rem;gap: 2rem;">
-        <button mat-stroked-button color="primary" matStepperPrevious>Atrás</button>
-        <button  class="button-send" type="submit" (click)="send()" >Enviar</button>
-      </div>
-    </mat-step>
+      </mat-step>
     </mat-horizontal-stepper>
 
   </form>
 </div>
-
-
-

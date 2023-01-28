@@ -14,6 +14,7 @@ export class ExperiencesCardsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
   deleteExperience(experience: string, experiences: string){

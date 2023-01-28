@@ -90,6 +90,7 @@ p {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    gap: 0.9rem;
     &-title {
       margin: 0;
       font-weight: bold;
@@ -196,6 +197,7 @@ select {
   margin: 8px 0;
   display: inline-block;
   box-sizing: border-box;
+
 
 }
 
